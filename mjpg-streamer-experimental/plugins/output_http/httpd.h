@@ -49,6 +49,13 @@
     "Pragma: no-cache\r\n" \
     "Expires: Mon, 3 Jan 2000 12:34:56 GMT\r\n"
 
+// my tests show only the allow origin is needed
+#define ALLOW_HEADER "Access-Control-Allow-Origin: *\r\n" 
+        //    "Access-Control-Allow-Private-Network: true\r\n" \
+        //     "Access-Control-Allow-Credentials: true\r\n" \
+        //     "Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS\r\n" \
+        //     "Access-Control-Allow-Headers: Authorization,Accept,Origin,DNT,Access-Control-Request-Private-Network,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range\r\n"
+
 /*
  * Maximum number of server sockets (i.e. protocol families) to listen.
  */

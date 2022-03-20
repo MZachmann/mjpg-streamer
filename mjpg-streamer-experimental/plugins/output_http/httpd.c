@@ -434,8 +434,8 @@ void send_snapshot(cfd *context_fd, int input_number)
 
     /* write the response */
     sprintf(buffer, "HTTP/1.0 200 OK\r\n" \
-            "Access-Control-Allow-Origin: *\r\n" \
-            STD_HEADER \
+             ALLOW_HEADER \
+             STD_HEADER \
             "Content-type: image/jpeg\r\n" \
             "X-Timestamp: %d.%06d\r\n" \
             "\r\n", (int) timestamp.tv_sec, (int) timestamp.tv_usec);
@@ -464,8 +464,8 @@ void send_stream(cfd *context_fd, int input_number)
 
     DBG("preparing header\n");
     sprintf(buffer, "HTTP/1.0 200 OK\r\n" \
-            "Access-Control-Allow-Origin: *\r\n" \
-            STD_HEADER \
+           ALLOW_HEADER \
+           STD_HEADER \
             "Content-Type: multipart/x-mixed-replace;boundary=" BOUNDARY "\r\n" \
             "\r\n" \
             "--" BOUNDARY "\r\n");
@@ -760,6 +760,7 @@ void send_file(int id, int fd, char *parameter)
     /* prepare HTTP header */
     sprintf(buffer, "HTTP/1.0 200 OK\r\n" \
             "Content-type: %s\r\n" \
+            ALLOW_HEADER \
             STD_HEADER \
             "\r\n", mimetype);
     i = strlen(buffer);
@@ -1619,6 +1620,7 @@ void send_input_JSON(int fd, int input_number)
     int i;
     sprintf(buffer, "HTTP/1.0 200 OK\r\n" \
             "Content-type: %s\r\n" \
+            ALLOW_HEADER \
             STD_HEADER \
             "\r\n", "application/x-javascript");
 
@@ -1836,6 +1838,7 @@ void send_program_JSON(int fd)
     int i, k;
     sprintf(buffer, "HTTP/1.0 200 OK\r\n" \
             "Content-type: %s\r\n" \
+            ALLOW_HEADER \
             STD_HEADER \
             "\r\n", "application/x-javascript");
 
@@ -1932,6 +1935,7 @@ void send_output_JSON(int fd, int input_number)
     int i;
     sprintf(buffer, "HTTP/1.0 200 OK\r\n" \
             "Content-type: %s\r\n" \
+            ALLOW_HEADER \
             STD_HEADER \
             "\r\n", "application/x-javascript");
 
@@ -2037,6 +2041,7 @@ void send_clients_JSON(int fd)
     unsigned long i = 0 ;
     sprintf(buffer, "HTTP/1.0 200 OK\r\n" \
             "Content-type: %s\r\n" \
+            ALLOW_HEADER \
             STD_HEADER \
             "\r\n", "application/x-javascript");
 
